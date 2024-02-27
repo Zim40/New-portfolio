@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
         navUl.classList.toggle('show');
         menuBtn.classList.toggle('marginBtn');
     });
-    window.addEventListener("scroll", revealItems );
+    displayProjects();
+    revealItems();
 });
+document.addEventListener("scroll", revealItems );
 
 
 
@@ -39,21 +41,11 @@ const projects = [
         link: "",
     }
 ];
- function revealItems() {
-    var items = document.querySelectorAll(".item");
-    console.log(items)
-    items.forEach(item => {
-        if(isElementInViewport(item)) {
-            item.classList.add("visible");
-            console.log(item)
-        }
-        
-    });
-};
+
 
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
-    // console.log("Top:", rect.top, "Bottom:", rect.bottom, "Window Height:", window.innerHeight);
+    // console.log(rect)
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
@@ -62,6 +54,23 @@ function isElementInViewport(el) {
     );
 
 }
+function revealItems() {
+    var items = document.querySelectorAll(".item");
+    
+    items.forEach(item => {
+        
+        if(isElementInViewport(item) === false) {
+            // console.log("false")
+         
+        } else {
+            item.classList.add("visible");
+            item.classList.remove("item");
+
+            console.log(item, "True")
+        }
+        
+    });
+};
 
 
 function displayProjects() {
@@ -104,6 +113,9 @@ function displayProjects() {
         projectEl.appendChild(projectLink);
 
         container.append(projectEl);
+        if(isElementInViewport(projectEl)) {
+            projectEl.classList.add("visible");
+        }
 
     
 
@@ -113,9 +125,9 @@ function displayProjects() {
     
 };
 
-window.onload = function() {
-    displayProjects();
-}; 
+// window.onload = function() {
+//     displayProjects();
+// }; 
 
 
 

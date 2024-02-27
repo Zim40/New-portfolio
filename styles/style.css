@@ -92,6 +92,7 @@ footer {
   }
 
   .show {
+    
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -103,12 +104,12 @@ footer {
   }
 }
 .project {
-  min-height: 100vh;
+  min-height: 50vh;
  
 }
 .item {
   opacity:  0;
-  transition: opacity 0.3s ease;
+  transition: opacity 2s ease;
 }
 .visible {
   opacity: 1;
