@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
         menuBtn.classList.toggle('marginBtn');
     });
     displayProjects();
-    revealItems();
+    displayFooter();
+    // revealItems();
 });
-document.addEventListener("scroll", revealItems );
+document.addEventListener("scroll", revealItems);
 
 
 
@@ -60,12 +61,11 @@ function revealItems() {
     items.forEach(item => {
         
         if(isElementInViewport(item) === false) {
-            // console.log("false")
-         
+            item.classList.add("item");
+            item.classList.remove("visible");
+            console.log("false")
         } else {
             item.classList.add("visible");
-            item.classList.remove("item");
-
             console.log(item, "True")
         }
         
@@ -106,6 +106,7 @@ function displayProjects() {
         projectLink.textContent = "View Project";
         projectLink.href = project.link;
         projectLink.target = "_blank";
+      
 
         projectEl.appendChild(projectImage);
         projectEl.appendChild(projectName);
@@ -116,14 +117,62 @@ function displayProjects() {
         if(isElementInViewport(projectEl)) {
             projectEl.classList.add("visible");
         }
-
-    
-
-     
-    
     });
+    // const footerSection = document.getElementById("footer");
+    
+    // const div = document.createElement("div");
+    // div.classList.add("div--footer", "item");
+
+    // const span = document.createElement("span");
+    // span.classList.add("footer--span");
+
+    // const pTag1 = document.createElement("p");
+    // pTag1.classList.add("pTag1");
+    // pTag1.textContent = "Michael Monaghan";
+
+    // const pTag2 = document.createElement("p");
+    // pTag2.classList.add("pTag2");
+    // pTag2.textContent = "Made with ❤️";
+
+
+    // div.appendChild(span);
+    // div.appendChild(pTag1);
+    // div.appendChild(pTag2);
+    
+    // footerSection.append(div);
+    // if(isElementInViewport(div)) {
+    //     div.classList.add("visible");
+    // } 
     
 };
+
+function displayFooter() {
+    const container = document.getElementById("footer");
+    
+    const div = document.createElement("div");
+    div.classList.add("div--footer", "item");
+
+    const span = document.createElement("span");
+    span.classList.add("footer--span");
+
+    const pTag1 = document.createElement("p");
+    pTag1.classList.add("pTag1");
+    pTag1.textContent = "Michael Monaghan";
+
+    const pTag2 = document.createElement("p");
+    pTag2.classList.add("pTag2");
+    pTag2.textContent = "Made with ❤️";
+
+
+    div.appendChild(span);
+    div.appendChild(pTag1);
+    div.appendChild(pTag2);
+    
+    container.append(div);
+    if(isElementInViewport(div)) {
+        div.classList.add("visible");
+    }
+}
 
 // window.onload = function() {
 //     displayProjects();
