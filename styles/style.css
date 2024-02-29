@@ -68,9 +68,8 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  position: relative;
+  margin-top: auto;
   width: 100%;
   /* margin-top: 40px; */
   height: 40px;
@@ -126,7 +125,7 @@ span.footer--span {
   }
 } */
 section.projects {
-  /* margin-top: 60px; */
+  margin-top: 60px;
   /* max-height: calc(100vh - 200px); */
   
 }
@@ -136,11 +135,16 @@ section.projects {
   height: 50vh;
 }
 div#\#Projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 45px;
+  /* max-width: 50vw; */
 }
 .item {
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
+  opacity: 0.4;
+  transition: opacity 0.3s ease-in;
 }
 .visible {
   opacity: 1;

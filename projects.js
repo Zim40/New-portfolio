@@ -10,6 +10,8 @@ document.addEventListener("scroll", revealItems);
 
 
 
+
+
 const projects = [
     {
         name: "HC-Managment System",
@@ -71,6 +73,10 @@ function revealItems() {
 
 
 function displayProjects() {
+    // const footer = document.querySelector("footer");
+    // if(isElementInViewport(footer)) {
+    //     footer.classList.add("visible");
+    // }
 
     const container = document.getElementById("projects--container");
     
@@ -113,7 +119,8 @@ function displayProjects() {
         container.append(projectEl);
         if(isElementInViewport(projectEl)) {
             projectEl.classList.add("visible");
-        }
+        };
+      
     });
     // const footerSection = document.getElementById("footer");
     
