@@ -7,13 +7,13 @@
 }
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
   margin: 0px;
   padding: 0px;
   background-color: var(--secondary-color);
   font-family: "Montserrat", sans-serrif;
 }
-.nav--container {
+/* .nav--container {
   
   width: 100%;
   background-color: var(--secondary-color);
@@ -47,7 +47,7 @@ body {
   font-size: 24px;
   color: black;
   text-decoration: none;
-}
+} */
 
 .hamburger--menu {
   display: none;
@@ -63,9 +63,30 @@ body {
 #goals {
   margin-bottom: 10px;
 }
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* margin-top: 40px; */
+  height: 40px;
+  /* background-color: black; */
+  /* opacity: 0.5; */
+  color: black;
+}
+
+span.footer--span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hamburger--menu {
     display: block;
     position: fixed;
@@ -103,16 +124,19 @@ body {
   .nav--ul.show > li > a > i {
     margin: 0;
   }
-}
+} */
 section.projects {
   /* margin-top: 60px; */
-  max-height: calc(100vh - 200px);
+  /* max-height: calc(100vh - 200px); */
   
 }
 .project {
   margin: 5px;
   border: 1px solid black;
   height: 50vh;
+}
+div#\#Projects {
+  margin-bottom: 45px;
 }
 .item {
   opacity: 0;
