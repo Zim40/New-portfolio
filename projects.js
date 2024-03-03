@@ -15,27 +15,27 @@ document.addEventListener("scroll", revealItems);
 const projects = [
     {
         name: "HC-Managment System",
-        description: "",
-        image: "",
-        link: "",
+        description: "HC-Management System is a user-friendly application designed to streamline time tracking and employee management processes. Whether you're an employee or an administrator, our platform offers intuitive features to enhance efficiency and productivity in your workplace.",
+        image: "./assets/HCManagement.png",
+        link: "https://github.com/Zim40/HC-Management-SYS",
     },
     {
         name: "Rural Tech Admin Dashboard",
-        description: "",
-        image: "",
-        link: "",
+        description: "Rural tech is a template e-commerce website that demonstrates the possibility of creating a tool for business owners to handle inventory tasks.",
+        image: "./assets/ruralTech.png",
+        link: "https://github.com/Zim40/RuralTech-Ecommerce-",
     },
     {
         name: "Fetch Event",
-        description: "",
-        image: "",
-        link: "",
+        description: "Fetch Event allows users to search events in specific areas in different genres using the ticketmaster API.",
+        image: "./assets/fetchEvent.png",
+        link: "https://github.com/Zim40/FetchEvent",
     },
     {
         name: "Wordle Replica",
-        description: "",
-        image: "",
-        link: "",
+        description: "Wordle is a word puzzle game where you try to guess a secret five-letter word in as few attempts as possible. You get feedback after each guess to help you figure out the word. It's like a fun challenge to test your word skills and problem-solving abilities.",
+        image: "./assets/wordleReplica.png",
+        link: "https://github.com/Zim40/Wordle-Replica",
     }
 ];
 
@@ -85,7 +85,16 @@ function displayProjects() {
         const projectEl = document.createElement("div");
         projectEl.classList.add("project", "item");
         
+        // PROJECT IMAGE
+        const imgDiv = document.createElement("div");
+        imgDiv.classList.add("div--image");
+        const projectImage = document.createElement("img");
+        projectImage.classList.add("project--image");
+        projectImage.src = project.image;
+        projectImage.alt = project.name;
         
+        const contentContainer = document.createElement("div");
+        contentContainer.classList.add("project--content", "item");
 
         const projectName = document.createElement("h2");
         projectName.classList.add("project--name");
@@ -96,13 +105,7 @@ function displayProjects() {
         projectDesc.classList.add("project--description");
         
         projectDesc.textContent = project.description
-
-        const projectImage = document.createElement("img");
-        projectImage.classList.add("project--image");
         
-        projectImage.src = project.image;
-        projectImage.alt = project.name;
-
         const projectLink = document.createElement("a");
         projectLink.classList.add("project--link");
         
@@ -110,15 +113,20 @@ function displayProjects() {
         projectLink.href = project.link;
         projectLink.target = "_blank";
       
+        
+        imgDiv.appendChild(projectImage);
+        contentContainer.appendChild(projectName);
+        contentContainer.appendChild(imgDiv);
+        
+        contentContainer.appendChild(projectDesc);
+        contentContainer.appendChild(projectLink);
 
-        projectEl.appendChild(projectImage);
-        projectEl.appendChild(projectName);
-        projectEl.appendChild(projectDesc);
-        projectEl.appendChild(projectLink);
-
-        container.append(projectEl);
-        if(isElementInViewport(projectEl)) {
-            projectEl.classList.add("visible");
+        container.append(contentContainer);
+        // if(isElementInViewport(projectEl)) {
+        //     projectEl.classList.add("visible");
+        // };
+        if(isElementInViewport(container)) {
+            container.classList.add("visible");
         };
       
     });
