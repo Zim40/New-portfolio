@@ -45,11 +45,12 @@ function isElementInViewport(el) {
 
     var footer = document.querySelector("footer").offsetHeight;
     // var navbar = document.querySelector("nav--container").offsetHeight;
-    console.log(footer)
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    var minvisibleHeight = rect.height * 0.5;
     return (
-        rect.top >= 0  &&
+        (rect.top + minvisibleHeight) >= 0  &&
         rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight - footer) &&
+        (rect.bottom - minvisibleHeight) <= (viewportHeight - footer) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 

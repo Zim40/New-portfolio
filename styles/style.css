@@ -4,6 +4,7 @@
   --dark-color: #5f634f;
   --bluey-color: #9bc4cb;
   --light-green: #dbefbc;
+  --fontType:  "Montserrat", sans-serrif;
 }
 html,
 body {
@@ -12,6 +13,7 @@ body {
   background-color: var(--secondary-color);
   font-family: "Montserrat", sans-serrif;
 }
+
 
 /* Navbar items */
 nav.navbar.navbar-expand-lg.bg-transparent.fixed-top {
@@ -38,9 +40,7 @@ li.nav-item {
   position: relative;
   margin-top: auto;
   width: 100%;
-
   height: 40px;
-
   color: black;
 }
 
@@ -49,12 +49,13 @@ span.footer--span {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  font-weight: 600;
   width: 100%;
 }
 /* --------------------------------------- */
 
 
-/* PROJECTS CSS */
+/* PROJECTS CARDS CSS */
 .works--title {
   font-family: "Montserrat", sans-serrif;
 }
@@ -67,6 +68,23 @@ h2.project--name {
   padding: 10px;
   text-align: center;
   letter-spacing: -2px;
+}
+a.project--link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 47px;
+  border: 1px solid black;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  background-color: green;
+  color: black;
+  font-weight: 600;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
 }
 section.projects {
   margin-top: 70px;
@@ -134,4 +152,24 @@ img.project--image {
   h2.project--name {
     text-align: center;
   }
+}
+
+#landingPage {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  border: 1px solid black;
+  height: 100vh;
+  width: 95vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+.landing--container {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 300px;
+  height: 200px;
 }
