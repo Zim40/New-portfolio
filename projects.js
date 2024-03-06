@@ -1,222 +1,175 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    displayProjects();
-    displayLandingPage();
-    // displayFooter();
-    // revealItems();
+  displayProjects();
+  displayLandingPage();
+  // displayLandingPage();
+  // displayFooter();
+  // revealItems();
 });
 document.addEventListener("scroll", revealItems);
 
-
-
-
-
-
-
 const projects = [
-    {
-        name: "HC-Managment System",
-        description: "HC-Management System is a user-friendly application designed to streamline time tracking and employee management processes. Whether you're an employee or an administrator, our platform offers intuitive features to enhance efficiency and productivity in your workplace.",
-        image: "./assets/HCManagement.png",
-        link: "https://github.com/Zim40/HC-Management-SYS",
-    },
-    {
-        name: "Rural Tech Admin Dashboard",
-        description: "Rural tech is a template e-commerce website that demonstrates the possibility of creating a tool for business owners to handle inventory tasks.",
-        image: "./assets/ruralTech.png",
-        link: "https://github.com/Zim40/RuralTech-Ecommerce-",
-    },
-    {
-        name: "Fetch Event",
-        description: "Fetch Event allows users to search events in specific areas in different genres using the ticketmaster API.",
-        image: "./assets/fetchEvent.png",
-        link: "https://github.com/Zim40/FetchEvent",
-    },
-    {
-        name: "Wordle Replica",
-        description: "Wordle is a word puzzle game where you try to guess a secret five-letter word in as few attempts as possible. You get feedback after each guess to help you figure out the word. It's like a fun challenge to test your word skills and problem-solving abilities.",
-        image: "./assets/wordleReplica.png",
-        link: "https://github.com/Zim40/Wordle-Replica",
-    }
+  {
+    name: "HC-Managment System",
+    description:
+      "HC-Management System is a user-friendly application designed to streamline time tracking and employee management processes. Whether you're an employee or an administrator, our platform offers intuitive features to enhance efficiency and productivity in your workplace.",
+    image: "./assets/HCManagement.png",
+    link: "https://github.com/Zim40/HC-Management-SYS",
+  },
+  {
+    name: "Rural Tech Admin Dashboard",
+    description:
+      "Rural tech is a template e-commerce website that demonstrates the possibility of creating a tool for business owners to handle inventory tasks.",
+    image: "./assets/ruralTech.png",
+    link: "https://github.com/Zim40/RuralTech-Ecommerce-",
+  },
+  {
+    name: "Fetch Event",
+    description:
+      "Fetch Event allows users to search events in specific areas in different genres using the ticketmaster API.",
+    image: "./assets/fetchEvent.png",
+    link: "https://github.com/Zim40/FetchEvent",
+  },
+  {
+    name: "Wordle Replica",
+    description:
+      "Wordle is a word puzzle game where you try to guess a secret five-letter word in as few attempts as possible. You get feedback after each guess to help you figure out the word. It's like a fun challenge to test your word skills and problem-solving abilities.",
+    image: "./assets/wordleReplica.png",
+    link: "https://github.com/Zim40/Wordle-Replica",
+  },
 ];
 
-
 function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
+  var rect = el.getBoundingClientRect();
 
-    var footer = document.querySelector("footer").offsetHeight;
-    // var navbar = document.querySelector("nav--container").offsetHeight;
-    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    var minvisibleHeight = rect.height * 0.5;
-    return (
-        (rect.top + minvisibleHeight) >= 0  &&
-        rect.left >= 0 &&
-        (rect.bottom - minvisibleHeight) <= (viewportHeight - footer) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+  var footer = document.querySelector("footer").offsetHeight;
 
+  var viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+  var minvisibleHeight = rect.height * 0.5;
+  return (
+    rect.top + minvisibleHeight >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom - minvisibleHeight <= viewportHeight - footer &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 }
 function revealItems() {
-    var items = document.querySelectorAll(".item");
-    
-    items.forEach(item => {
-        
-        if(isElementInViewport(item) === false) {
-            item.classList.add("item");
-            item.classList.remove("visible");
-            console.log("false")
-        } else {
-            item.classList.add("visible");
-            console.log(item, "True")
-        }
-        
-    });
-};
+  var items = document.querySelectorAll(".item");
 
+  items.forEach((item) => {
+    if (isElementInViewport(item) === false) {
+      item.classList.add("item");
+      item.classList.remove("visible");
+      console.log("false");
+    } else {
+      item.classList.add("visible");
+      console.log(item, "True");
+    }
+  });
+}
 
 function displayProjects() {
-    // const footer = document.querySelector("footer");
-    // if(isElementInViewport(footer)) {
-    //     footer.classList.add("visible");
-    // }
+  const container = document.getElementById("projects--container");
 
-    const container = document.getElementById("projects--container");
-    
+  projects.forEach((project) => {
+    const projectEl = document.createElement("div");
+    projectEl.classList.add("project", "item");
 
-    projects.forEach(project => {
-        const projectEl = document.createElement("div");
-        projectEl.classList.add("project", "item");
-        
-        // PROJECT IMAGE
-        const imgDiv = document.createElement("div");
-        imgDiv.classList.add("div--image");
-        const projectImage = document.createElement("img");
-        projectImage.classList.add("project--image");
-        projectImage.src = project.image;
-        projectImage.alt = project.name;
-        
-        const contentContainer = document.createElement("div");
-        contentContainer.classList.add("project--content", "item");
+    // PROJECT IMAGE
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("div--image");
+    const projectImage = document.createElement("img");
+    projectImage.classList.add("project--image");
+    projectImage.src = project.image;
+    projectImage.alt = project.name;
 
-        const projectName = document.createElement("h2");
-        projectName.classList.add("project--name");
-        
-        projectName.textContent = project.name
+    const contentContainer = document.createElement("div");
+    contentContainer.classList.add("project--content", "item");
 
-        const projectDesc = document.createElement("p");
-        projectDesc.classList.add("project--description");
-        
-        projectDesc.textContent = project.description
-        
-        const projectLink = document.createElement("a");
-        projectLink.classList.add("project--link");
-        
-        projectLink.textContent = "View Project";
-        projectLink.href = project.link;
-        projectLink.target = "_blank";
-      
-        
-        imgDiv.appendChild(projectImage);
-        contentContainer.appendChild(projectName);
-        contentContainer.appendChild(imgDiv);
-        
-        contentContainer.appendChild(projectDesc);
-        contentContainer.appendChild(projectLink);
+    const projectName = document.createElement("h2");
+    projectName.classList.add("project--name");
 
-        container.append(contentContainer);
-        // if(isElementInViewport(projectEl)) {
-        //     projectEl.classList.add("visible");
-        // };
-        if(isElementInViewport(container)) {
-            container.classList.add("visible");
-        };
-      
-    });
-    // const footerSection = document.getElementById("footer");
-    
-    // const div = document.createElement("div");
-    // div.classList.add("div--footer", "item");
+    projectName.textContent = project.name;
 
-    // const span = document.createElement("span");
-    // span.classList.add("footer--span");
+    const projectDesc = document.createElement("p");
+    projectDesc.classList.add("project--description");
 
-    // const pTag1 = document.createElement("p");
-    // pTag1.classList.add("pTag1");
-    // pTag1.textContent = "Michael Monaghan";
+    projectDesc.textContent = project.description;
 
-    // const pTag2 = document.createElement("p");
-    // pTag2.classList.add("pTag2");
-    // pTag2.textContent = "Made with ❤️";
+    const projectLink = document.createElement("a");
+    projectLink.classList.add("project--link");
 
+    projectLink.textContent = "View Project";
+    projectLink.href = project.link;
+    projectLink.target = "_blank";
 
-    // div.appendChild(span);
-    // div.appendChild(pTag1);
-    // div.appendChild(pTag2);
-    
-    // footerSection.append(div);
-    // if(isElementInViewport(div)) {
-    //     div.classList.add("visible");
-    // } 
-    
-};
+    imgDiv.appendChild(projectImage);
+    contentContainer.appendChild(projectName);
+    contentContainer.appendChild(imgDiv);
+
+    contentContainer.appendChild(projectDesc);
+    contentContainer.appendChild(projectLink);
+
+    container.append(contentContainer);
+
+    if (isElementInViewport(container)) {
+      container.classList.add("visible");
+    }
+  });
+}
 
 function displayFooter() {
-    const container = document.getElementById("footer");
-    
-    const div = document.createElement("div");
-    div.classList.add("div--footer", "item");
+  const container = document.getElementById("footer");
 
-    const span = document.createElement("span");
-    span.classList.add("footer--span");
+  const div = document.createElement("div");
+  div.classList.add("div--footer", "item");
 
-    const pTag1 = document.createElement("p");
-    pTag1.classList.add("pTag1");
-    pTag1.textContent = "Michael Monaghan";
+  const span = document.createElement("span");
+  span.classList.add("footer--span");
 
-    const pTag2 = document.createElement("p");
-    pTag2.classList.add("pTag2");
-    pTag2.textContent = "Made with ❤️";
+  const pTag1 = document.createElement("p");
+  pTag1.classList.add("pTag1");
+  pTag1.textContent = "Michael Monaghan";
 
+  const pTag2 = document.createElement("p");
+  pTag2.classList.add("pTag2");
+  pTag2.textContent = "Made with ❤️";
 
-    div.appendChild(span);
-    div.appendChild(pTag1);
-    div.appendChild(pTag2);
-    
-    container.append(div);
-    if(isElementInViewport(div)) {
-        div.classList.add("visible");
-    }
+  div.appendChild(span);
+  div.appendChild(pTag1);
+  div.appendChild(pTag2);
+
+  container.append(div);
+  if (isElementInViewport(div)) {
+    div.classList.add("visible");
+  }
 }
 
 function displayLandingPage() {
-    
-    const container = document.getElementById("landing--container");
+  const container = document.getElementById("landing--container");
 
-    const content = document.createElement("div");
-    content.classList.add("div--landing");
+  const content = document.createElement("div");
+  content.classList.add("div--landing");
 
-    const title = document.createElement("h1");
-    title.classList.add("title--landing")
-    title.textContent = "Michael Monaghan"
+  const title = document.createElement("h1");
+  title.classList.add("title--landing");
+  title.textContent = "Michael Monaghan.";
 
-    const titlePara = document.createElement("p");
-    titlePara.classList.add("p--landing");
-    titlePara.textContent = "Fullstack Web Developer";
+  const titlePara = document.createElement("p");
+  titlePara.classList.add("p--landing");
+  titlePara.textContent = "Fullstack Web Developer";
 
-    content.appendChild(title);
-    content.appendChild(titlePara);
+  container.append(content);
+  setTimeout(function () {
+    if (title && titlePara) {
+      content.appendChild(title);
+      content.appendChild(titlePara);
 
-    setTimeout(function () {
-        container.append(content);
-    }, 2000);
-    
-    
-
+      content.classList.add("landing--container--visible");
+    }
+  }, 1000);
 }
 
 // window.onload = function() {
 //     displayProjects();
-// }; 
-
-
-
+// };
