@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     displayProjects();
+    displayLandingPage();
     // displayFooter();
     // revealItems();
 });
@@ -185,6 +186,32 @@ function displayFooter() {
     if(isElementInViewport(div)) {
         div.classList.add("visible");
     }
+}
+
+function displayLandingPage() {
+    
+    const container = document.getElementById("landing--container");
+
+    const content = document.createElement("div");
+    content.classList.add("div--landing");
+
+    const title = document.createElement("h1");
+    title.classList.add("title--landing")
+    title.textContent = "Michael Monaghan"
+
+    const titlePara = document.createElement("p");
+    titlePara.classList.add("p--landing");
+    titlePara.textContent = "Fullstack Web Developer";
+
+    content.appendChild(title);
+    content.appendChild(titlePara);
+
+    setTimeout(function () {
+        container.append(content);
+    }, 2000);
+    
+    
+
 }
 
 // window.onload = function() {
