@@ -23,10 +23,17 @@ a.navbar-brand {
   font-size: 30px;
 }
 div#navbarSupportedContent {
-  font-size: 30px;
+  font-size: 18px;
 }
 li.nav-item {
   margin-right: 33px;
+}
+a.nav-link.active:hover {
+  font-weight: 500;
+  color: var(--main-color);
+  background-color: var(--dark-color);
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 /* --------------------------------------- */
 
@@ -126,9 +133,16 @@ img.project--image {
   padding: 0;
   background-color: var(--bluey-color);
 }
+.textLineVisible {
+  opacity: 1!important;
+}
+.textLineHidden {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
 
 .item {
-  opacity: 0;
+  opacity: 0.6;
   transition: opacity 0.2s ease-in;
 }
 .visible {
@@ -180,6 +194,33 @@ p.p--landing {
   font-weight: 500;
   width: 360px;
 }
+nav.navbar.navbar-expand-lg.bg-transparent.fixed-top {
+  background-color: transparent!important;
+}
+a.navbar-brand {
+  display: none;
+}
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: end !important;
+  background-color: var(--dark-color);
+}
+ul.navbar-nav.ms-auto.mb-2.mb-lg-0 {
+  text-align: end;
+  /* background-color: blue; */
+  width: 50%;
+}
+nav.navbar.navbar-expand-lg.fixed-top {
+  padding: 0;
+}
+button.navbar-toggler {
+  margin: 10px;
+  background-color: var(--light-green);
+}
+section.projects {
+  padding-top: 60px;
+}
 }
 
 
@@ -205,6 +246,10 @@ p.p--landing {
 }
 
 .div--landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   opacity: 0;
   transition: opacity 0.8s ease-in;
   display: flex;
@@ -215,10 +260,14 @@ p.p--landing {
 p.p--landing {
   font-size: 16px;
   text-align: right;
-  /* line-height: 10px; */
+  padding-right: 5px;
 }
 
 h1.title--landing {
   font-size: 50px;
+}
+h1.works--title {
+  margin: 6px;
+  text-decoration:underline;
 }
 

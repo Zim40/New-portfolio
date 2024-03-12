@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   displayProjects();
   displayLandingPage();
+  displayText();
   // displayLandingPage();
   // displayFooter();
   // revealItems();
@@ -99,7 +100,7 @@ function displayProjects() {
     const projectLink = document.createElement("a");
     projectLink.classList.add("project--link");
 
-    projectLink.textContent = "View Project";
+    projectLink.textContent = "View Code";
     projectLink.href = project.link;
     projectLink.target = "_blank";
 
@@ -118,31 +119,69 @@ function displayProjects() {
   });
 }
 
-function displayFooter() {
-  const container = document.getElementById("footer");
+// function displayFooter() {
+//   const container = document.getElementById("footer");
+
+//   const div = document.createElement("div");
+//   div.classList.add("div--footer", "item");
+
+//   const span = document.createElement("span");
+//   span.classList.add("footer--span");
+
+//   const pTag1 = document.createElement("p");
+//   pTag1.classList.add("pTag1");
+//   pTag1.textContent = "Michael Monaghan";
+
+//   const pTag2 = document.createElement("p");
+//   pTag2.classList.add("pTag2");
+//   pTag2.textContent = "Made with ❤️";
+
+//   div.appendChild(span);
+//   div.appendChild(pTag1);
+//   div.appendChild(pTag2);
+
+//   container.append(div);
+//   if (isElementInViewport(div)) {
+//     div.classList.add("visible");
+//   }
+// }
+function displayText () {
+  const container = document.getElementById("landing--container");
 
   const div = document.createElement("div");
-  div.classList.add("div--footer", "item");
+  div.classList.add("quote--container");
 
-  const span = document.createElement("span");
-  span.classList.add("footer--span");
+  const textLine1 = document.createElement("p");
+  textLine1.classList.add("textLine1", "textLineHidden");
+  textLine1.textContent = "Every line of code";
 
-  const pTag1 = document.createElement("p");
-  pTag1.classList.add("pTag1");
-  pTag1.textContent = "Michael Monaghan";
 
-  const pTag2 = document.createElement("p");
-  pTag2.classList.add("pTag2");
-  pTag2.textContent = "Made with ❤️";
+  const textLine2 = document.createElement("p");
+  textLine2.classList.add("textLine2", "textLineHidden");
+  textLine2.textContent = "is a step towards a future more exciting";
 
-  div.appendChild(span);
-  div.appendChild(pTag1);
-  div.appendChild(pTag2);
-
-  container.append(div);
-  if (isElementInViewport(div)) {
-    div.classList.add("visible");
+  
+  function scatterText() {
+    if(textLine1) {
+      setTimeout(function() {
+        div.appendChild(textLine1);
+        
+        // textLine1.classList.remove("textLineHidden");
+      }, 3000);
+    }
+    textLine1.classList.add("textLineVisible");
+    if(textLine2) {
+      setTimeout(function() {
+        div.appendChild(textLine2)
+        textLine2.classList.add("textLineVisible");
+      }, 4000);
+    }
+ 
   }
+  scatterText();
+  container.append(div);
+  
+
 }
 
 function displayLandingPage() {
@@ -153,7 +192,7 @@ function displayLandingPage() {
 
   const title = document.createElement("h1");
   title.classList.add("title--landing");
-  title.textContent = "Michael Monaghan.";
+  title.textContent = "Michael Monaghan";
 
   const titlePara = document.createElement("p");
   titlePara.classList.add("p--landing");
@@ -173,3 +212,6 @@ function displayLandingPage() {
 // window.onload = function() {
 //     displayProjects();
 // };
+
+
+// Every line of code is a step towards a future more exciting
