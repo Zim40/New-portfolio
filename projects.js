@@ -145,43 +145,41 @@ function displayProjects() {
 //     div.classList.add("visible");
 //   }
 // }
-function displayText () {
+function displayText() {
   const container = document.getElementById("landing--container");
 
   const div = document.createElement("div");
-  div.classList.add("quote--container");
+  div.classList.add("quote--container", "textLineHidden");
 
   const textLine1 = document.createElement("p");
-  textLine1.classList.add("textLine1", "textLineHidden");
-  textLine1.textContent = "Every line of code";
-
+  textLine1.classList.add("textLine1");
+  textLine1.textContent = "Every line of code - ";
 
   const textLine2 = document.createElement("p");
   textLine2.classList.add("textLine2", "textLineHidden");
   textLine2.textContent = "is a step towards a future more exciting";
 
+  container.append(div);
   
   function scatterText() {
-    if(textLine1) {
-      setTimeout(function() {
+    if (textLine1) {
+      setTimeout(function () {
         div.appendChild(textLine1);
-        
+        div.classList.add("textLineVisible");
         // textLine1.classList.remove("textLineHidden");
       }, 3000);
     }
-    textLine1.classList.add("textLineVisible");
-    if(textLine2) {
-      setTimeout(function() {
-        div.appendChild(textLine2)
+
+    if (textLine2) {
+      setTimeout(function () {
+        div.appendChild(textLine2);
         textLine2.classList.add("textLineVisible");
-      }, 4000);
+        // div.classList.remove("textLineHidden")
+      }, 4500);
     }
- 
+    
   }
   scatterText();
-  container.append(div);
-  
-
 }
 
 function displayLandingPage() {
@@ -212,6 +210,5 @@ function displayLandingPage() {
 // window.onload = function() {
 //     displayProjects();
 // };
-
 
 // Every line of code is a step towards a future more exciting

@@ -194,6 +194,15 @@ p.p--landing {
   font-weight: 500;
   width: 360px;
 }
+.quote--container.textLineVisible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 260px;
+  font-weight: 600;
+}
 nav.navbar.navbar-expand-lg.bg-transparent.fixed-top {
   background-color: transparent!important;
 }
@@ -236,7 +245,7 @@ section.projects {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  flex-direction: column;
   width: auto;
   height: auto;
 }
