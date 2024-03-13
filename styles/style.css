@@ -26,15 +26,19 @@ div#navbarSupportedContent {
   font-size: 18px;
 }
 li.nav-item {
-  margin-right: 33px;
+  margin-right: 14px;
 }
-a.nav-link.active:hover {
+/* a.nav-link.active:hover {
   font-weight: 500;
   color: var(--main-color);
+  transition: background-color 0.2s;
+  transform: none;
   background-color: var(--dark-color);
   border-radius: 10px;
   box-sizing: border-box;
-}
+  -webkit-backface-visibility: hidden;
+} */
+
 /* --------------------------------------- */
 
 /* FOOTER CSS */
@@ -53,10 +57,18 @@ a.nav-link.active:hover {
 span.footer--span {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
+  margin: 0;
   font-weight: 600;
   width: 100%;
+  color: var(--light-green);
+  background-color: var(--dark-color);
+}
+p.footer--text {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 5px;
 }
 /* --------------------------------------- */
 
@@ -194,7 +206,7 @@ p.p--landing {
   font-weight: 500;
   width: 360px;
 }
-.quote--container.textLineVisible {
+.quote--container{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -219,6 +231,7 @@ ul.navbar-nav.ms-auto.mb-2.mb-lg-0 {
   text-align: end;
   /* background-color: blue; */
   width: 50%;
+  font-weight: 600;
 }
 nav.navbar.navbar-expand-lg.fixed-top {
   padding: 0;
@@ -278,5 +291,14 @@ h1.title--landing {
 h1.works--title {
   margin: 6px;
   text-decoration:underline;
+}
+.quote--container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 260px;
+  font-weight: 600;
 }
 

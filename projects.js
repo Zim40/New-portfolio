@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   displayProjects();
   displayLandingPage();
   displayText();
+  closeNavbar();
   // displayLandingPage();
   // displayFooter();
   // revealItems();
@@ -69,6 +70,20 @@ function revealItems() {
   });
 }
 
+function closeNavbar() {
+  const navItems = document.querySelectorAll(".nav-item");
+
+  navItems.forEach(function(navItem) {
+    navItem.addEventListener("click", function() {
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+      if (navbarCollapse.classList.contains("show")) {
+        navbarCollapse.classList.remove("show");
+      }})
+  })
+
+  
+}
+
 function displayProjects() {
   const container = document.getElementById("projects--container");
 
@@ -119,65 +134,33 @@ function displayProjects() {
   });
 }
 
-// function displayFooter() {
-//   const container = document.getElementById("footer");
-
-//   const div = document.createElement("div");
-//   div.classList.add("div--footer", "item");
-
-//   const span = document.createElement("span");
-//   span.classList.add("footer--span");
-
-//   const pTag1 = document.createElement("p");
-//   pTag1.classList.add("pTag1");
-//   pTag1.textContent = "Michael Monaghan";
-
-//   const pTag2 = document.createElement("p");
-//   pTag2.classList.add("pTag2");
-//   pTag2.textContent = "Made with ❤️";
-
-//   div.appendChild(span);
-//   div.appendChild(pTag1);
-//   div.appendChild(pTag2);
-
-//   container.append(div);
-//   if (isElementInViewport(div)) {
-//     div.classList.add("visible");
-//   }
-// }
 function displayText() {
   const container = document.getElementById("landing--container");
 
   const div = document.createElement("div");
-  div.classList.add("quote--container", "textLineHidden");
+  div.classList.add("quote--container");
 
   const textLine1 = document.createElement("p");
-  textLine1.classList.add("textLine1");
+  textLine1.classList.add("textLine1", "textLineHidden");
   textLine1.textContent = "Every line of code - ";
 
   const textLine2 = document.createElement("p");
   textLine2.classList.add("textLine2", "textLineHidden");
   textLine2.textContent = "is a step towards a future more exciting";
-
+  div.appendChild(textLine1);
+  div.appendChild(textLine2);
   container.append(div);
-  
-  function scatterText() {
-    if (textLine1) {
-      setTimeout(function () {
-        div.appendChild(textLine1);
-        div.classList.add("textLineVisible");
-        // textLine1.classList.remove("textLineHidden");
-      }, 3000);
-    }
 
-    if (textLine2) {
-      setTimeout(function () {
-        div.appendChild(textLine2);
-        textLine2.classList.add("textLineVisible");
-        // div.classList.remove("textLineHidden")
-      }, 4500);
-    }
-    
+  function scatterText() {
+    setTimeout(function () {
+      textLine1.classList.add("textLineVisible");
+    }, 3000);
+
+    setTimeout(function () {
+      textLine2.classList.add("textLineVisible");
+    }, 4000);
+
+    // div.classList.add("textLineVisible");
   }
   scatterText();
 }
